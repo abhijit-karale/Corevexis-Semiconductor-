@@ -1,137 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Corevexis Semiconductor - Cloud-Based Semiconductor Design Platform</title>
-  <meta name="description" content="Corevexis is a cloud-based semiconductor design platform offering SPICE simulation, digital logic tools, and collaborative EDA workflows.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Corevexis Semiconductor - Cloud-Based Design Platform</title>
+  <meta name="description" content="Corevexis Semiconductor offers cloud-based IC design, SPICE simulation, and advanced EDA tools for modern semiconductor workflows." />
+  
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Corevexis Semiconductor" />
+  <meta property="og:description" content="Cloud-Based Semiconductor Design Platform" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Corevexis+Semiconductor" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Corevexis Semiconductor - Cloud-Based Semiconductor Design Platform">
-  <meta property="og:description" content="Cloud SPICE simulation, digital logic design, real-time collaboration, and professional EDA tools.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://chipnest.io/">
+  <!-- Font Awesome Icons - Async -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="canonical" href="https://chipnest.io/">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Corevexis Semiconductor",
-    "url": "https://chipnest.io/",
-    "description": "Cloud-based semiconductor design platform with SPICE, EDA, and collaboration features.",
-    "creator": { "@type":"Person", "name":"Abhijit Karale" }
-  }
-  </script>
+  <!-- CSS - Optimized -->
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Performance: Preconnect to CDNs -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://via.placeholder.com">
+  
+  <!-- Performance: DNS Prefetch -->
+  <link rel="dns-prefetch" href="https://formsubmit.co">
 </head>
-<body>
-  <header class="navbar">
-    <div class="brand">
-      <h1 class="logo">Corevexis</h1>
-      <span class="tag">Cloud-Based Semiconductor Design Platform</span>
+<body data-optimize="true">
+  <!-- Header / Hero with Semiconductor Theme & Electron Pulse -->
+  <header class="hero-section semiconductor-theme">
+    <div class="electron-pulse"></div>
+    <div class="wafer-spin-container">
+      <img src="https://images.unsplash.com/photo-1624644092654-8f0a388ed7c7?ixlib=rb-4.0.4&auto=format&fit=crop&w=800&q=80" alt="Semiconductor Wafer" class="wafer" />
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="login.html" class="btn">Login</a>
-    </nav>
+    <div class="hero-content">
+      <h1>Corevexis Semiconductor</h1>
+      <p>Cloud-Based Semiconductor Design Platform for Modern Engineers</p>
+      <a href="#get-started" class="btn-primary">Get Started</a>
+      <a href="#about" class="btn-secondary">Learn More</a>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-inner">
-        <h2>Modern cloud EDA for semiconductor teams</h2>
-        <p>Run SPICE simulations, design digital logic, and collaborate in real time — all in your browser.</p>
-        <div class="hero-ctas">
-          <a class="btn" href="login.html">Get Started</a>
-          <a class="btn-outline" href="contact.html">Request Demo</a>
-        </div>
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <svg class="circuit-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Circuit board pattern -->
+          <rect x="20" y="20" width="160" height="160" fill="none" stroke="#00bcd4" stroke-width="2" rx="10"/>
+          <circle cx="50" cy="50" r="8" fill="#00bcd4"/>
+          <circle cx="150" cy="50" r="8" fill="#00bcd4"/>
+          <circle cx="50" cy="150" r="8" fill="#00bcd4"/>
+          <circle cx="150" cy="150" r="8" fill="#00bcd4"/>
+          <!-- Flowing electrons -->
+          <path id="path1" d="M 50 50 L 150 50" stroke="none"/>
+          <circle r="4" fill="#ffeb3b" class="electron">
+            <animateMotion dur="3s" repeatCount="indefinite">
+              <mpath href="#path1"/>
+            </animateMotion>
+          </circle>
+          <path id="path2" d="M 150 50 L 150 150" stroke="none"/>
+          <circle r="4" fill="#ffeb3b" class="electron">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="1s">
+              <mpath href="#path2"/>
+            </animateMotion>
+          </circle>
+          <!-- Connection lines -->
+          <line x1="50" y1="50" x2="150" y2="50" stroke="#00bcd4" stroke-width="2" opacity="0.5"/>
+          <line x1="150" y1="50" x2="150" y2="150" stroke="#00bcd4" stroke-width="2" opacity="0.5"/>
+          <line x1="150" y1="150" x2="50" y2="150" stroke="#00bcd4" stroke-width="2" opacity="0.5"/>
+          <line x1="50" y1="150" x2="50" y2="50" stroke="#00bcd4" stroke-width="2" opacity="0.5"/>
+        </svg>
+        <h3>Cloud SPICE Simulation</h3>
+        <p>Run circuit simulations directly in your browser with industry-standard accuracy.</p>
       </div>
-    </section>
-
-    <section class="features">
-      <h2>Key Features</h2>
-      <div class="grid">
-        <div class="card">
-          <i class="fas fa-microchip"></i>
-          <h3>Cloud SPICE Simulation</h3>
-          <p>High-performance circuit simulation without local installs.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-project-diagram"></i>
-          <h3>Digital Logic Design</h3>
-          <p>Design, simulate and verify digital circuits quickly.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-users"></i>
-          <h3>Real-Time Collaboration</h3>
-          <p>Share projects and work with teammates live.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-server"></i>
-          <h3>Professional EDA Tools</h3>
-          <p>Industry-oriented toolset for production workflows.</p>
-        </div>
+      <div class="feature-card">
+        <svg class="circuit-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Digital logic gates visualization -->
+          <defs>
+            <path id="logic-path-1" d="M 70 60 L 80 140"/>
+          </defs>
+          <rect x="30" y="40" width="40" height="40" fill="none" stroke="#00d4ff" stroke-width="2" rx="5"/>
+          <text x="50" y="65" text-anchor="middle" fill="#00d4ff" font-size="20" font-weight="bold">AND</text>
+          <rect x="130" y="40" width="40" height="40" fill="none" stroke="#00d4ff" stroke-width="2" rx="5"/>
+          <text x="150" y="65" text-anchor="middle" fill="#00d4ff" font-size="20" font-weight="bold">OR</text>
+          <rect x="80" y="120" width="40" height="40" fill="none" stroke="#00d4ff" stroke-width="2" rx="5"/>
+          <text x="100" y="147" text-anchor="middle" fill="#00d4ff" font-size="16" font-weight="bold">OUT</text>
+          <!-- Connection lines with flowing pulse -->
+          <line x1="70" y1="60" x2="80" y2="140" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+          <line x1="170" y1="60" x2="120" y2="140" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+          <circle r="5" fill="#ff1744" opacity="0.9" class="pulse-dot">
+            <animateMotion dur="2s" repeatCount="indefinite" begin="0s">
+              <mpath href="#logic-path-1"/>
+            </animateMotion>
+          </circle>
+        </svg>
+        <h3>Digital Logic Design</h3>
+        <p>Create, verify, and simulate digital circuits with ease.</p>
       </div>
-    </section>
-
-    <section class="gallery">
-      <h2>Gallery</h2>
-      <div class="grid gallery-grid">
-        <div class="card small">Chip layout preview</div>
-        <div class="card small">Waveform simulation</div>
-        <div class="card small">Collaborative editor</div>
-      </div>
-    </section>
-
-    <section class="pricing">
-      <h2>Pricing</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Starter</h3>
-          <p>$9 / month</p>
-          <button class="btn">Choose Plan</button>
-        </div>
-        <div class="card featured">
-          <h3>Professional</h3>
-          <p>$29 / month</p>
-          <button class="btn">Choose Plan</button>
-        </div>
-        <div class="card">
-          <h3>Enterprise</h3>
-          <p>Contact for pricing</p>
-          <button class="btn">Contact Us</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="founder">
-      <h2>Founder</h2>
-      <div class="founder-inner">
-        <div>
-          <h3>Abhijit Karale</h3>
-          <p>CEO & Founder — Electronics & Telecommunications background. Building cloud EDA and SPICE tools for modern teams.</p>
-          <p>Email: <a href="mailto:info@chipnest.com">info@chipnest.com</a></p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div>© 2026 Corevexis Semiconductor</div>
-      <div class="social">
-        <a href="https://github.com/abhijit-karale"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
+      <div class="feature-card">
+        <svg class="circuit-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Collaboration network -->
+          <defs>
+            <path id="network-path-1" d="M 60 80 L 100 100"/>
+          </defs>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#00bcd4" stroke-width="2" stroke-dasharray="5,5" class="network-pulse"/>
+          <circle cx="60" cy="80" r="10" fill="#00bcd4"/>
+          <circle cx="140" cy="80" r="10" fill="#00bcd4"/>
+          <circle cx="100" cy="140" r="10" fill="#00bcd4"/>
+          <circle cx="100" cy="100" r="8" fill="#ffeb3b"/>
+          <!-- Connection lines -->
+          <line x1="60" y1="80" x2="100" y2="100" stroke="#00bcd4" stroke-width="2" opacity="0.7"/>
+          <line x1="140" y1="80" x2="100" y2="100" stroke="#00bcd4" stroke-width="2" opacity="0.7"/>
+          <line x1="100" y1="140" x2="100" y2="100" stroke="#00bcd4" stroke-width="2" opacity="0.7"/>
+          <!-- Animated connection pulse -->
+          <circle r="3" fill="#00ff88" opacity="0.8" class="network-dot">
+            <animateMotion dur="2.5s" repeatCount="indefinite">
+              <mpath href="#network-path-1"/>
+            </animateMotion>
+          </circle>
+        </svg>
+        <h3>Real-Time Collaboration</h3>
+        <p>Work seamlessly with your team in real-time, anywhere.</p>
       </div>
     </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="gallery-section">
+    <h2>Our Designs</h2>
+    <div class="gallery-grid" role="region" aria-label="Semiconductor Wafer Designs">
+      <!-- Wafer Design 1 -->
+      <div class="gallery-item">
+        <svg class="wafer-design" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" width="300" height="300" aria-label="Advanced IC Circuit Wafer" role="img">
+          <defs>
+            <radialGradient id="wg1"><stop offset="0%" stop-color="#1a237e"/><stop offset="100%" stop-color="#0d1b52"/></radialGradient>
+            <filter id="gw1"><feGaussianBlur stdDeviation="3" result="cb"/><feMerge><feMergeNode in="cb"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <path id="we1" d="M 100 100 L 200 100 L 200 200 L 100 200 Z"/>
+          </defs>
+          <circle cx="150" cy="150" r="140" fill="url(#wg1)" stroke="#00bcd4" stroke-width="2"/>
+          <g stroke="#00bcd4" stroke-width="1.5" opacity=".6">
+            <line x1="50" y1="150" x2="250" y2="150"/>
+            <line x1="150" y1="50" x2="150" y2="250"/>
+            <line x1="80" y1="80" x2="220" y2="220"/>
+            <line x1="220" y1="80" x2="80" y2="220"/>
+          </g>
+          <g filter="url(#gw1)">
+            <circle cx="100" cy="100" r="8" fill="#00ff88" opacity=".8" class="circuit-glow"/>
+            <circle cx="200" cy="100" r="8" fill="#00ff88" opacity=".8" class="circuit-glow"/>
+            <circle cx="100" cy="200" r="8" fill="#00ff88" opacity=".8" class="circuit-glow"/>
+            <circle cx="200" cy="200" r="8" fill="#00ff88" opacity=".8" class="circuit-glow"/>
+            <circle cx="150" cy="150" r="6" fill="#ffeb3b" opacity=".9" class="circuit-glow"/>
+          </g>
+          <circle r="5" fill="#ff1744" opacity=".9">
+            <animateMotion dur="4s" repeatCount="indefinite"><mpath href="#we1"/></animateMotion>
+          </circle>
+        </svg>
+        <p>Advanced IC Circuit Wafer</p>
+      </div>
+
+      <!-- Wafer Design 2 -->
+      <div class="gallery-item">
+        <svg class="wafer-design" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" width="300" height="300" aria-label="High-Density Multi-Core Chip" role="img">
+          <defs>
+            <radialGradient id="wg2"><stop offset="0%" stop-color="#263238"/><stop offset="100%" stop-color="#0d1b2a"/></radialGradient>
+            <filter id="gw2"><feGaussianBlur stdDeviation="3" result="cb"/><feMerge><feMergeNode in="cb"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <circle cx="150" cy="150" r="140" fill="url(#wg2)" stroke="#00d4ff" stroke-width="2"/>
+          <g stroke="#00d4ff" stroke-width="1.5" opacity=".5" fill="none">
+            <circle cx="150" cy="150" r="80"/>
+            <circle cx="150" cy="150" r="110"/>
+          </g>
+          <g stroke="#00d4ff" stroke-width=".8" opacity=".4">
+            <line x1="80" y1="150" x2="220" y2="150"/>
+            <line x1="150" y1="80" x2="150" y2="220"/>
+            <line x1="100" y1="100" x2="200" y2="200"/>
+            <line x1="200" y1="100" x2="100" y2="200"/>
+            <line x1="120" y1="80" x2="120" y2="220"/>
+            <line x1="180" y1="80" x2="180" y2="220"/>
+            <line x1="80" y1="120" x2="220" y2="120"/>
+            <line x1="80" y1="180" x2="220" y2="180"/>
+          </g>
+          <g filter="url(#gw2)">
+            <circle cx="120" cy="130" r="6" fill="#00ff88" opacity=".85" class="circuit-pulse"/>
+            <circle cx="180" cy="130" r="6" fill="#00ff88" opacity=".85" class="circuit-pulse"/>
+            <circle cx="150" cy="170" r="6" fill="#00ff88" opacity=".85" class="circuit-pulse"/>
+            <circle cx="150" cy="150" r="4" fill="#ff6b9d" opacity=".9"/>
+          </g>
+        </svg>
+        <p>High-Density Multi-Core Chip</p>
+      </div>
+
+      <!-- Wafer Design 3 -->
+      <div class="gallery-item">
+        <svg class="wafer-design" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" width="300" height="300" aria-label="Quantum Processor Architecture" role="img">
+          <defs>
+            <radialGradient id="wg3"><stop offset="0%" stop-color="#1a1a2e"/><stop offset="100%" stop-color="#0f0f1e"/></radialGradient>
+            <filter id="gw3"><feGaussianBlur stdDeviation="4" result="cb"/><feMerge><feMergeNode in="cb"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <circle cx="150" cy="150" r="140" fill="url(#wg3)" stroke="#00bcd4" stroke-width="3"/>
+          <g stroke="#00bcd4" stroke-width="1" opacity=".5" fill="none">
+            <polygon points="150,60 220,105 220,195 150,240 80,195 80,105"/>
+            <polygon points="150,90 200,120 200,180 150,210 100,180 100,120"/>
+          </g>
+          <g filter="url(#gw3)">
+            <circle cx="150" cy="100" r="5" fill="#ffeb3b" opacity=".9" class="electron-flow"/>
+            <circle cx="190" cy="125" r="5" fill="#ffeb3b" opacity=".9" class="electron-flow"/>
+            <circle cx="190" cy="175" r="5" fill="#ffeb3b" opacity=".9" class="electron-flow"/>
+            <circle cx="150" cy="200" r="5" fill="#ffeb3b" opacity=".9" class="electron-flow"/>
+            <circle cx="110" cy="175" r="5" fill="#ffeb3b" opacity=".9" class="electron-flow"/>
+            <circle cx="110" cy="125" r="5" fill="#ffeb3b" opacity=".9" class="electron-flow"/>
+          </g>
+          <circle cx="150" cy="150" r="8" fill="#ff5722" opacity=".9" filter="url(#gw3)"/>
+        </svg>
+        <p>Quantum Processor Architecture</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials-section">
+    <h2>What Our Users Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>"Corevexis has revolutionized our IC design workflow. Highly recommended!"</p>
+        <h4>- Engineer A</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"The cloud simulation tools are fast and reliable. Great support too."</p>
+        <h4>- Designer B</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="pricing-section">
+    <h2>Pricing Plans</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Starter</h3>
+        <p class="price">$0/month</p>
+        <ul>
+          <li>Basic IC Design</li>
+          <li>Limited Simulations</li>
+          <li>Email Support</li>
+        </ul>
+        <a href="#get-started" class="btn-primary">Choose Starter</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Professional</h3>
+        <p class="price">$49/month</p>
+        <ul>
+          <li>Full IC Design Tools</li>
+          <li>Unlimited Simulations</li>
+          <li>Priority Support</li>
+        </ul>
+        <a href="#get-started" class="btn-primary">Choose Professional</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <p class="price">Contact Us</p>
+        <ul>
+          <li>Custom Solutions</li>
+          <li>Dedicated Support</li>
+          <li>Team Collaboration</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section id="roadmap" class="roadmap-section">
+    <h2>Product Roadmap 2026</h2>
+    <ul>
+      <li>Q1: Launch of new simulation features</li>
+      <li>Q2: Collaboration tools enhancement</li>
+      <li>Q3: IoT & wireless design modules</li>
+      <li>Q4: Mobile app development</li>
+    </ul>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about-section">
+    <h2>About Corevexis Semiconductor</h2>
+    <p>Corevexis Semiconductor is committed to providing cloud-based solutions for modern semiconductor design, enabling engineers worldwide to innovate faster and more efficiently.</p>
+    <h3>Founder: Abhijit Karale</h3>
+    <p>Electronics & Telecommunications Engineering Student with a passion for semiconductor innovation.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+      <div class="contact-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Pune, Maharashtra, India</p>
+      </div>
+      <div class="contact-card">
+        <i class="fas fa-envelope"></i>
+        <p><a href="mailto:info@corevexis.com">info@corevexis.com</a></p>
+      </div>
+      <div class="contact-card">
+        <i class="fas fa-phone"></i>
+        <p>+91-9272029056</p>
+      </div>
+    </div>
+    <form action="https://formsubmit.co/your-email@example.com" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Corevexis Semiconductor. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
   </footer>
+
+  <!-- Performance-optimized scripts -->
+  <script>
+    // Performance optimization: Lazy loading and smooth animations
+    (function() {
+      'use strict';
+      
+      // 1. Intersection Observer for lazy animations
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        // Observe gallery items for staggered animations
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          observer.observe(item);
+        });
+        
+        // Observe feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+          observer.observe(card);
+        });
+      }
+      
+      // 2. Smooth scroll behavior
+      document.documentElement.style.scrollBehavior = 'smooth';
+      
+      // 3. Performance monitoring (optional - for debugging)
+      if (window.performance && window.performance.timing) {
+        window.addEventListener('load', function() {
+          setTimeout(function() {
+            const perfData = window.performance.timing;
+            const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+            console.log('Page load time:', pageLoadTime, 'ms');
+          }, 0);
+        });
+      }
+      
+      // 4. Disable animations on prefers-reduced-motion
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+      }
+      
+      // 5. Smooth link navigation
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+      
+      // 6. Optimize form submission
+      const form = document.querySelector('.contact-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          const button = this.querySelector('button');
+          button.disabled = true;
+          button.textContent = 'Sending...';
+        });
+      }
+    })();
+  </script>
+
 </body>
 </html>
