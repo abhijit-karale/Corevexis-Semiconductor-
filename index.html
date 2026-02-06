@@ -126,6 +126,66 @@
         <h3>Real-Time Collaboration</h3>
         <p>Work seamlessly with your team in real-time, anywhere.</p>
       </div>
+
+      <div class="feature-card">
+        <svg class="circuit-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Professional EDA Tools visualization -->
+          <defs>
+            <path id="eda-path-1" d="M 50 100 L 150 100"/>
+          </defs>
+          <rect x="30" y="50" width="140" height="100" fill="none" stroke="#00d4ff" stroke-width="2" rx="8"/>
+          <circle cx="50" cy="70" r="5" fill="#00ff88"/>
+          <circle cx="100" cy="70" r="5" fill="#00ff88"/>
+          <circle cx="150" cy="70" r="5" fill="#00ff88"/>
+          <!-- Tool indicators -->
+          <line x1="40" y1="90" x2="160" y2="90" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+          <line x1="40" y1="110" x2="160" y2="110" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+          <line x1="40" y1="130" x2="160" y2="130" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+          <!-- Flow animation -->
+          <circle r="4" fill="#ffeb3b" opacity="0.9">
+            <animateMotion dur="3s" repeatCount="indefinite">
+              <mpath href="#eda-path-1"/>
+            </animateMotion>
+          </circle>
+        </svg>
+        <h3>Professional EDA Tools</h3>
+        <p>Industry-standard design automation tools integrated in your browser.</p>
+      </div>
+
+      <div class="feature-card">
+        <svg class="circuit-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- IoT & Wireless Design visualization -->
+          <defs>
+            <path id="iot-path-1" d="M 100 50 Q 120 100 100 150"/>
+            <filter id="iot-glow"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <!-- Central hub -->
+          <circle cx="100" cy="100" r="12" fill="#00ff88" filter="url(#iot-glow)"/>
+          <!-- Wireless signals -->
+          <circle cx="100" cy="100" r="30" stroke="#00bcd4" stroke-width="2" fill="none" opacity="0.5">
+            <animate attributeName="r" values="30;50;30" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Devices -->
+          <circle cx="60" cy="60" r="8" fill="#ff1744"/>
+          <circle cx="140" cy="60" r="8" fill="#ff1744"/>
+          <circle cx="140" cy="140" r="8" fill="#ff1744"/>
+          <circle cx="60" cy="140" r="8" fill="#ff1744"/>
+          <!-- Connection lines -->
+          <line x1="60" y1="60" x2="100" y2="100" stroke="#00bcd4" stroke-width="1.5" opacity="0.5"/>
+          <line x1="140" y1="60" x2="100" y2="100" stroke="#00bcd4" stroke-width="1.5" opacity="0.5"/>
+          <line x1="140" y1="140" x2="100" y2="100" stroke="#00bcd4" stroke-width="1.5" opacity="0.5"/>
+          <line x1="60" y1="140" x2="100" y2="100" stroke="#00bcd4" stroke-width="1.5" opacity="0.5"/>
+          <!-- Animated data flow -->
+          <circle r="3" fill="#ffeb3b" opacity="0.9">
+            <animateMotion dur="2.5s" repeatCount="indefinite">
+              <mpath href="#iot-path-1"/>
+            </animateMotion>
+          </circle>
+        </svg>
+        <h3>IoT & Wireless Design</h3>
+        <p>Create and validate wireless protocols and IoT applications with ease.</p>
+      </div>
     </div>
   </section>
 
