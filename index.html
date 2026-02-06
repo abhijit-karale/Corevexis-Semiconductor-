@@ -35,7 +35,12 @@
       <div class="navbar-logo">
         <a href="index.html">Corevexis</a>
       </div>
-      <nav class="navbar-menu">
+      <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="navbar-menu" class="navbar-menu">
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
         <a href="pricing.html">Pricing</a>
@@ -896,6 +901,28 @@
         modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
       });
+    })();
+  </script>
+
+  <script>
+    // Responsive navbar toggle for mobile/tablet
+    (function(){
+      'use strict';
+      const toggle = document.querySelector('.navbar-toggle');
+      const nav = document.getElementById('navbar-menu');
+      if (!toggle || !nav) return;
+      function setExpanded(val){
+        toggle.setAttribute('aria-expanded', String(val));
+        document.body.classList.toggle('nav-open', val);
+      }
+      toggle.addEventListener('click', function(){
+        const open = document.body.classList.toggle('nav-open');
+        setExpanded(open);
+      });
+      // Close nav when a link is clicked (mobile)
+      nav.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{ setExpanded(false); }));
+      // Close on Escape
+      document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') setExpanded(false); });
     })();
   </script>
 

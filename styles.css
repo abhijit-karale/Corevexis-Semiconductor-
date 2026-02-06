@@ -83,6 +83,58 @@
   width: 100%;
 }
 
+/* Navbar toggle (mobile) */
+.navbar-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  width: 44px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 6px;
+}
+.navbar-toggle .bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-color);
+  margin: 4px 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Mobile menu hidden by default */
+@media (max-width: 991px) {
+  .navbar-menu {
+    position: absolute;
+    top: 70px;
+    right: 16px;
+    background: linear-gradient(180deg, rgba(10,14,39,0.98), rgba(18,18,18,0.95));
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 200px;
+    border: 1px solid rgba(0,188,212,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  .navbar-toggle { display: inline-flex; }
+
+  body.nav-open .navbar-menu { display: flex; }
+
+  /* transform bars into X when open */
+  body.nav-open .navbar-toggle .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  body.nav-open .navbar-toggle .bar:nth-child(2) { opacity: 0; }
+  body.nav-open .navbar-toggle .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Adjust navbar layout */
+  .navbar-container { padding-right: 10px; }
+}
+
+
 :root {
   --primary-color: #00bcd4;
   --primary-dark: #0097a7;
