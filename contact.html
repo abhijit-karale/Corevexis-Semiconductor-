@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Corevexis Semiconductor</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">
+        <a href="index.html">Corevexis</a>
+      </div>
+      <nav class="navbar-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Hero Section -->
+  <section class="contact-hero">
+    <div class="hero-content">
+      <h1>Get in Touch</h1>
+      <p>We'd love to hear from you. Send us a message!</p>
+    </div>
+  </section>
+
+  <!-- Contact Content Section -->
+  <section class="contact-section">
+    <div class="section-container">
+      <div class="contact-wrapper">
+        <!-- Contact Info -->
+        <div class="contact-info-box">
+          <h2>Contact Information</h2>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <h3>Address</h3>
+              <p>
+                Corevexis Semiconductor<br>
+                Tech Innovation Hub<br>
+                Bangalore, India 560001
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="info-content">
+              <h3>Phone</h3>
+              <p>
+                <a href="tel:+918800125674">+91 8800125674</a><br>
+                <a href="tel:+918765432109">+91 8765432109</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-content">
+              <h3>Email</h3>
+              <p>
+                <a href="mailto:abhijitkarale8@gmail.com">abhijitkarale8@gmail.com</a><br>
+                <a href="mailto:support@corevexis.com">support@corevexis.com</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="info-content">
+              <h3>Business Hours</h3>
+              <p>
+                Monday - Friday: 9:00 AM - 6:00 PM<br>
+                Saturday: 10:00 AM - 4:00 PM<br>
+                Sunday: Closed
+              </p>
+            </div>
+          </div>
+
+          <div class="social-links" style="margin-top: 30px;">
+            <h3>Follow Us</h3>
+            <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-box">
+          <h2>Send us a Message</h2>
+          
+          <div class="error-message" id="errorMessage"></div>
+          <div class="success-message" id="successMessage"></div>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  placeholder="Your full name"
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  placeholder="your.email@example.com"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  placeholder="+91 XXXXXXXXXX"
+                >
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <input 
+                  type="text" 
+                  id="subject" 
+                  name="subject" 
+                  placeholder="How can we help?"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="category">Category</label>
+              <select id="category" name="category">
+                <option value="general">General Inquiry</option>
+                <option value="sales">Sales Inquiry</option>
+                <option value="support">Technical Support</option>
+                <option value="partnership">Partnership</option>
+                <option value="feedback">Feedback</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                placeholder="Please describe your inquiry in detail..."
+                rows="6"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group checkbox">
+              <input type="checkbox" id="terms" name="terms" required>
+              <label for="terms">I agree to the privacy policy and terms of service</label>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section (Optional) -->
+  <section class="map-section">
+    <div class="section-container">
+      <h2>Find Us on the Map</h2>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.9325646156676!2d77.59!3d12.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17f8d8b9c8d5%3A0x5b8b8e8b8b8b8b8b!2sBangalore%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1234567890" 
+          width="100%" 
+          height="450" 
+          style="border:0; border-radius: 8px; margin-top: 30px;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="section-container">
+      <h2>Have more questions?</h2>
+      <p>Check out our FAQ or request a demo of Corevexis.</p>
+      <div style="text-align: center;">
+        <a href="pricing.html" class="btn-primary">View Pricing</a>
+        <a href="about.html" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Corevexis</h4>
+        <p>Cloud-based semiconductor design platform</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Corevexis Semiconductor. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <style>
+    .contact-hero {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      padding: 80px 20px;
+      text-align: center;
+      min-height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-hero h1 {
+      font-size: 2.5em;
+      color: #00bcd4;
+      margin-bottom: 15px;
+    }
+
+    .contact-hero p {
+      font-size: 1.2em;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .contact-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-info-box h2,
+    .contact-form-box h2 {
+      font-size: 1.8em;
+      color: #00bcd4;
+      margin-bottom: 30px;
+      background: linear-gradient(135deg, #00bcd4, #0097a7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: rgba(26, 31, 58, 0.5);
+      border-radius: 8px;
+      border-left: 3px solid #00bcd4;
+      transition: all 0.3s;
+    }
+
+    .info-item:hover {
+      background: rgba(26, 31, 58, 0.8);
+      border-color: #00ff88;
+    }
+
+    .info-icon {
+      font-size: 1.5em;
+      color: #00ff88;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .info-content h3 {
+      color: #4dd0e1;
+      margin: 0 0 8px 0;
+      font-size: 1.1em;
+    }
+
+    .info-content p {
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .info-content a {
+      color: #00bcd4;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .info-content a:hover {
+      color: #00ff88;
+    }
+
+    .contact-form-box {
+      background: linear-gradient(135deg, rgba(26, 31, 58, 0.9), rgba(18, 18, 18, 0.9));
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 188, 212, 0.3);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #4dd0e1;
+      font-weight: 600;
+      font-size: 0.95em;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid rgba(0, 188, 212, 0.3);
+      border-radius: 6px;
+      background-color: rgba(10, 14, 39, 0.6);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.95em;
+      transition: all 0.3s;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #00bcd4;
+      background-color: rgba(26, 31, 58, 0.9);
+      box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-group.checkbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .form-group.checkbox input {
+      width: auto;
+      margin: 0;
+    }
+
+    .form-group.checkbox label {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 400;
+    }
+
+    .error-message {
+      background-color: rgba(255, 23, 68, 0.1);
+      border: 1px solid #ff1744;
+      color: #ff6b6b;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .success-message {
+      background-color: rgba(0, 255, 136, 0.1);
+      border: 1px solid #00ff88;
+      color: #4cff7f;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.2), rgba(0, 255, 136, 0.1));
+      color: #00bcd4;
+      font-size: 1.2em;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      background: linear-gradient(135deg, #00bcd4, #00ff88);
+      color: #000;
+      transform: translateY(-3px);
+    }
+
+    .map-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(0, 188, 212, 0.02) 0%, transparent 100%);
+    }
+
+    .map-container {
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form-box {
+        padding: 25px;
+      }
+
+      .social-links {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .social-links a {
+        margin-right: 10px;
+      }
+    }
+  </style>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const subject = document.getElementById('subject').value;
+      const category = document.getElementById('category').value;
+      const message = document.getElementById('message').value;
+      const terms = document.getElementById('terms').checked;
+      
+      const errorDiv = document.getElementById('errorMessage');
+      const successDiv = document.getElementById('successMessage');
+
+      // Hide messages
+      errorDiv.style.display = 'none';
+      successDiv.style.display = 'none';
+
+      // Validation
+      if (!name || !email || !subject || !message || !terms) {
+        errorDiv.textContent = 'Please fill in all required fields and accept the terms.';
+        errorDiv.style.display = 'block';
+        return;
+      }
+
+      try {
+        // Using FormSubmit.co - free email service
+        const formData = new FormData();
+        formData.append('from_name', name);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('_subject', `Corevexis Contact: ${subject}`);
+        formData.append('category', category);
+        formData.append('message', message);
+        formData.append('_captcha', 'false');
+        formData.append('_cc', 'abhijitkarale8@gmail.com');
+        formData.append('_replyto', email);
+
+        const response = await fetch('https://formsubmit.co/abhijitkarale8@gmail.com', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          successDiv.innerHTML = `
+            <strong>✓ Message Sent Successfully!</strong><br>
+            Thank you for contacting us, ${name}. We'll get back to you shortly at ${email}.
+          `;
+          successDiv.style.display = 'block';
+          this.reset();
+          
+          // Scroll to success message
+          setTimeout(() => {
+            successDiv.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        } else {
+          throw new Error('Failed to send message');
+        }
+      } catch (error) {
+        errorDiv.textContent = 'Failed to send message. Please try again or contact us directly.';
+        errorDiv.style.display = 'block';
+        console.error('Error:', error);
+      }
+    });
+  </script>
+</body>
+</html>
