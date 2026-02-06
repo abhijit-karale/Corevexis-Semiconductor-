@@ -1,90 +1,73 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f172a;
-  color: white;
+:root{
+  --bg:#0b111a;
+  --panel:#071022;
+  --accent:#00e6d0;
+  --muted:#9aa4b2;
+  --glass:rgba(255,255,255,0.04);
+  --radius:12px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:linear-gradient(180deg,var(--bg),#020617 60%);
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+}
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:18px 28px;
+  background:linear-gradient(90deg, rgba(2,6,23,0.6), rgba(5,10,20,0.4));
+  backdrop-filter:blur(6px);
+}
+.brand{display:flex;flex-direction:column}
+.logo{font-weight:700;color:var(--accent);margin:0}
+.tag{font-size:12px;color:var(--muted)}
+nav a{margin-left:18px;color:inherit;text-decoration:none;font-weight:600}
+nav a.btn{background:var(--accent);color:#021021;padding:8px 14px;border-radius:8px}
+
+.hero{padding:72px 20px;text-align:center}
+.hero-inner{max-width:980px;margin:0 auto}
+.hero h2{font-size:32px;margin:0 0 12px}
+.hero p{color:var(--muted);margin:0 0 18px}
+.hero-ctas a{margin:0 8px}
+
+.features,.pricing,.gallery,.founder{padding:48px 20px}
+.grid{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.card{background:var(--panel);padding:20px;border-radius:var(--radius);width:260px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+.card.small{width:180px;min-height:100px;display:flex;align-items:center;justify-content:center}
+.card i{font-size:36px;color:var(--accent);margin-bottom:8px}
+
+.pricing .card.featured{border:1px solid rgba(0,230,208,0.15)}
+.btn{background:var(--accent);color:#021021;padding:10px 18px;border-radius:8px;border:none;cursor:pointer}
+.btn-outline{background:transparent;border:1px solid var(--accent);color:var(--accent);padding:10px 18px;border-radius:8px}
+
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 28px;color:var(--muted);font-size:14px}
+.footer-inner a{color:var(--muted);margin-left:8px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.map iframe{border-radius:8px}
+
+/* login split */
+.login-split{display:flex;min-height:80vh}
+.login-split .left{flex:1;padding:48px;background:linear-gradient(180deg,rgba(0,0,0,0.15),transparent)}
+.login-split .right{flex:1;display:flex;align-items:center;justify-content:center;padding:40px}
+.login-form{width:100%;max-width:380px;background:var(--panel);padding:24px;border-radius:12px;display:flex;flex-direction:column;gap:12px}
+.login-form input, textarea{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+.social-login{display:flex;gap:8px;margin-top:8px}
+
+/* responsive */
+@media (max-width:900px){
+  .hero h2{font-size:24px}
+  .navbar{padding:12px}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+  .login-split{flex-direction:column}
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 40px;
-  background: #020617;
-}
-
-.logo {
-  color: cyan;
-}
-
-nav a {
-  margin-left: 20px;
-  color: white;
-  text-decoration: none;
-}
-
-.hero {
-  text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(120deg, #020617, #0f172a);
-}
-
-.features, .pricing, .content {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.grid {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.card {
-  background: #020617;
-  padding: 20px;
-  border-radius: 10px;
-  width: 220px;
-}
-
-.card i {
-  font-size: 40px;
-  margin-bottom: 10px;
-  color: cyan;
-}
-
-.btn {
-  background: cyan;
-  color: black;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-outline {
-  border: 1px solid cyan;
-  color: cyan;
-  padding: 10px 20px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #020617;
-}
-
-.login-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-form {
-  background: #020617;
-  padding: 30px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+/* subtle animations placeholders (implement further as needed) */
+@keyframes pulse{0%{transform:scale(1);opacity:1}50%{transform:scale(1.02);opacity:0.9}100%{transform:scale(1);opacity:1}}
+.card{animation:pulse 6s ease-in-out infinite}
