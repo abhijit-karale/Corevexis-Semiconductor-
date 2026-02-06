@@ -7,8 +7,8 @@ Corevexis Semiconductor is a modern, cloud-based IC design and SPICE simulation 
 - ☁️ **Cloud SPICE Simulation** - Industry-standard circuit simulations in your browser
 - 🔧 **Digital Logic Design** - Create and verify digital circuits with ease
 - 🤝 **Real-Time Collaboration** - Work seamlessly with your team anywhere
-- 📊 **Advanced Analytics** - Comprehensive design insights and optimization
-- 🎨 **Modern UI** - Beautiful, responsive design with animated semiconductors
+- �️ **Professional EDA Tools** - Industry-standard design automation tools integrated in your browser
+- 📡 **IoT & Wireless Design** - Create and validate wireless protocols and IoT applications with ease
 
 ## 🎯 Highlights
 - **Performance-Optimized** - GPU-accelerated animations running at 60fps
@@ -75,8 +75,13 @@ This repository is configured for GitHub Pages deployment. The live site is auto
 - ✅ Reduced motion support
 
 ## 📝 Sections
-1. **Hero** - Eye-catching introduction with animated wafer
-2. **Features** - Three core features with circuit animations
+1. **Hero** - Eye-catching introduction with animated wafer and dual CTAs
+2. **Features** - Five core features with animated circuit diagrams:
+   - Cloud SPICE Simulation
+   - Digital Logic Design
+   - Real-Time Collaboration
+   - Professional EDA Tools
+   - IoT & Wireless Design
 3. **Gallery** - Custom SVG-animated semiconductor wafer designs
 4. **Portfolio** - Professional semiconductor project photography:
    - Microchip Circuit Design
