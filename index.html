@@ -832,5 +832,72 @@
     })();
   </script>
 
+  <!-- Roadmap modal (interactive details) -->
+  <div id="roadmap-modal" class="roadmap-modal" role="dialog" aria-hidden="true" aria-label="Roadmap detail dialog">
+    <div class="roadmap-modal-panel" role="document" tabindex="-1">
+      <button class="roadmap-modal-close close" aria-label="Close dialog">&times;</button>
+      <div class="roadmap-modal-flex">
+        <div class="roadmap-modal-image" aria-hidden="true"></div>
+        <div class="roadmap-modal-content">
+          <h3 class="roadmap-modal-title"></h3>
+          <p class="roadmap-modal-body"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Interactive roadmap: open modal with cloned SVG and details
+    (function() {
+      'use strict';
+      function qs(sel, root = document) { return root.querySelector(sel); }
+      function qsa(sel, root = document) { return Array.from(root.querySelectorAll(sel)); }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const items = qsa('.roadmap-item');
+        const modal = qs('#roadmap-modal');
+        if (!modal) return;
+        const modalTitle = qs('.roadmap-modal-title', modal);
+        const modalBody = qs('.roadmap-modal-body', modal);
+        const modalImage = qs('.roadmap-modal-image', modal);
+        const modalClose = qs('.roadmap-modal-close', modal);
+
+        function openModal(item) {
+          const title = (item.querySelector('.item-content h4') || {}).textContent || '';
+          const desc = (item.querySelector('.item-content p') || {}).textContent || '';
+          const imgNode = item.querySelector('.item-image');
+          modalTitle.textContent = title;
+          modalBody.textContent = desc;
+          modalImage.innerHTML = imgNode ? imgNode.innerHTML : '';
+          modal.setAttribute('aria-hidden', 'false');
+          modal.classList.add('active');
+          // trap focus briefly
+          modalClose.focus();
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+
+        items.forEach(item => {
+          item.setAttribute('tabindex', '0');
+          item.setAttribute('role', 'button');
+          item.setAttribute('aria-haspopup', 'dialog');
+          item.addEventListener('click', () => openModal(item));
+          item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(item); }
+          });
+        });
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+      });
+    })();
+  </script>
+
 </body>
 </html>
