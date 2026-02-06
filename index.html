@@ -20,6 +20,8 @@
 
   <!-- CSS - Optimized -->
   <link rel="stylesheet" href="styles.css" />
+  <!-- Preload hero image for perceived performance -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1624644092654-8f0a388ed7c7?ixlib=rb-4.0.4&auto=format&fit=crop&w=800&q=80">
   
   <!-- Performance: Preconnect to CDNs -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -29,6 +31,7 @@
   <link rel="dns-prefetch" href="https://formsubmit.co">
 </head>
 <body data-optimize="true">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <!-- Navigation Header -->
   <header class="navbar">
     <div class="navbar-container">
@@ -53,8 +56,8 @@
   <!-- Header / Hero with Semiconductor Theme & Electron Pulse -->
   <header class="hero-section semiconductor-theme">
     <div class="electron-pulse"></div>
-    <div class="wafer-spin-container">
-      <img src="https://images.unsplash.com/photo-1624644092654-8f0a388ed7c7?ixlib=rb-4.0.4&auto=format&fit=crop&w=800&q=80" alt="Semiconductor Wafer" class="wafer" />
+    <div id="main-content" class="wafer-spin-container">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1624644092654-8f0a388ed7c7?ixlib=rb-4.0.4&auto=format&fit=crop&w=800&q=80" alt="Semiconductor Wafer" class="wafer" />
     </div>
     <div class="hero-content">
       <h1>Corevexis Semiconductor</h1>
@@ -308,7 +311,7 @@
     <div class="portfolio-grid">
       <div class="portfolio-item">
         <div class="portfolio-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Microchip Circuit Board" />
+          <img loading="lazy" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Microchip Circuit Board" />
         </div>
         <div class="portfolio-info">
           <h3>Microchip Circuit Design</h3>
@@ -318,7 +321,7 @@
 
       <div class="portfolio-item">
         <div class="portfolio-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-          <img src="https://images.unsplash.com/photo-1621905167918-48416bd8575a?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Semiconductor Wafer" />
+          <img loading="lazy" src="https://images.unsplash.com/photo-1621905167918-48416bd8575a?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Semiconductor Wafer" />
         </div>
         <div class="portfolio-info">
           <h3>Silicon Wafer Processing</h3>
@@ -328,7 +331,7 @@
 
       <div class="portfolio-item">
         <div class="portfolio-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-          <img src="https://images.unsplash.com/photo-1518611505868-48510c2e022f?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Electronic Components" />
+          <img loading="lazy" src="https://images.unsplash.com/photo-1518611505868-48510c2e022f?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Electronic Components" />
         </div>
         <div class="portfolio-info">
           <h3>Electronic Components</h3>
@@ -338,7 +341,7 @@
 
       <div class="portfolio-item">
         <div class="portfolio-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-          <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Lab Testing Equipment" />
+          <img loading="lazy" src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Lab Testing Equipment" />
         </div>
         <div class="portfolio-info">
           <h3>Testing & Validation</h3>
@@ -348,7 +351,7 @@
 
       <div class="portfolio-item">
         <div class="portfolio-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-          <img src="https://images.unsplash.com/photo-1526374965328-7f5ae4e8a84e?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Circuit Trace Design" />
+          <img loading="lazy" src="https://images.unsplash.com/photo-1526374965328-7f5ae4e8a84e?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Circuit Trace Design" />
         </div>
         <div class="portfolio-info">
           <h3>Circuit Trace Optimization</h3>
@@ -358,7 +361,7 @@
 
       <div class="portfolio-item">
         <div class="portfolio-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Manufacturing Process" />
+          <img loading="lazy" src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.4&auto=format&fit=crop&w=500&q=60" alt="Manufacturing Process" />
         </div>
         <div class="portfolio-info">
           <h3>Manufacturing Excellence</h3>
@@ -748,12 +751,13 @@
         <p>+91-9272029056</p>
       </div>
     </div>
-    <form action="https://formsubmit.co/your-email@example.com" method="POST" class="contact-form">
+    <form action="https://formsubmit.co/your-email@example.com" method="POST" class="contact-form" aria-describedby="contact-status">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
       <button type="submit" class="btn-primary">Send Message</button>
     </form>
+    <div id="contact-status" class="form-status" role="status" aria-live="polite"></div>
   </section>
 
   <!-- Footer -->
@@ -825,13 +829,20 @@
         });
       });
       
-      // 6. Optimize form submission
+      // 6. Optimize form submission and announce status
       const form = document.querySelector('.contact-form');
+      const status = document.getElementById('contact-status');
       if (form) {
         form.addEventListener('submit', function(e) {
           const button = this.querySelector('button');
           button.disabled = true;
           button.textContent = 'Sending...';
+          if (status) status.textContent = 'Sending message...';
+          // Allow FormSubmit redirect to happen; remove spinner after 6s in case of network issue
+          setTimeout(() => {
+            if (status) status.textContent = 'If you do not see a confirmation, check your network or try again.';
+            if (button) { button.disabled = false; button.textContent = 'Send Message'; }
+          }, 6000);
         });
       }
     })();
@@ -867,6 +878,26 @@
         const modalImage = qs('.roadmap-modal-image', modal);
         const modalClose = qs('.roadmap-modal-close', modal);
 
+        let lastFocused = null;
+        const FOCUSABLE = 'a[href], area[href], input:not([disabled]), button:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+        function trapFocus(panel) {
+          const focusable = Array.from(panel.querySelectorAll(FOCUSABLE));
+          if (focusable.length === 0) return null;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          function handle(e) {
+            if (e.key !== 'Tab') return;
+            if (e.shiftKey) {
+              if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+            } else {
+              if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
+          }
+          panel.addEventListener('keydown', handle);
+          return () => panel.removeEventListener('keydown', handle);
+        }
+
         function openModal(item) {
           const title = (item.querySelector('.item-content h4') || {}).textContent || '';
           const desc = (item.querySelector('.item-content p') || {}).textContent || '';
@@ -876,8 +907,13 @@
           modalImage.innerHTML = imgNode ? imgNode.innerHTML : '';
           modal.setAttribute('aria-hidden', 'false');
           modal.classList.add('active');
-          // trap focus briefly
+          lastFocused = document.activeElement;
+          // focus first interactive element inside modal
           modalClose.focus();
+          // install focus trap
+          const panel = modal.querySelector('.roadmap-modal-panel');
+          const release = trapFocus(panel);
+          modal.__releaseFocus = release;
           document.body.style.overflow = 'hidden';
         }
 
@@ -885,6 +921,8 @@
           modal.classList.remove('active');
           modal.setAttribute('aria-hidden', 'true');
           document.body.style.overflow = '';
+          if (modal.__releaseFocus) { modal.__releaseFocus(); modal.__releaseFocus = null; }
+          if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
         }
 
         items.forEach(item => {
