@@ -2137,6 +2137,37 @@ ul {
 .company-card h4 { margin: 8px 0 4px 0; color: var(--primary-light); }
 .company-card p { margin: 0; color: var(--text-secondary); font-size: 0.9em; }
 
+/* Profile modal styles */
+.profile-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2,6,23,0.75);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 2300;
+  padding: 24px;
+}
+.profile-modal.active { opacity: 1; visibility: visible; }
+.profile-modal-panel {
+  width: 100%; max-width: 900px; border-radius: 12px; padding: 18px;
+  background: linear-gradient(180deg, rgba(18,18,18,0.98), rgba(26,26,36,0.98));
+  border: 1px solid rgba(0,188,212,0.06); box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+.profile-modal-close { position: absolute; right: 18px; top: 12px; background: transparent; border: none; color: var(--text-color); font-size: 28px; cursor: pointer; }
+.profile-modal-inner { display: flex; gap: 18px; align-items: flex-start; }
+.profile-modal-photo { flex: 0 0 220px; height: 220px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,188,212,0.04); background: rgba(0,0,0,0.2); display:flex; align-items:center; justify-content:center; }
+.profile-modal-photo img { width:100%; height:100%; object-fit:cover; }
+.profile-modal-copy { flex:1 1 auto; }
+.profile-modal-name { margin: 0 0 6px 0; color: var(--primary-light); }
+.profile-modal-role { margin: 0 0 12px 0; color: var(--text-secondary); font-weight:600; }
+.profile-modal-bio { color: var(--text-secondary); line-height:1.6; }
+@media (max-width: 768px) { .profile-modal-inner { flex-direction: column; } .profile-modal-photo { width: 100%; height: 180px; } }
+
+
 
 /* === ROADMAP MODAL STYLES === */
 .roadmap-modal {

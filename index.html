@@ -328,7 +328,7 @@
     <h2>Our Team & Partners</h2>
     <p class="company-subtitle">Profiles and partner visuals (AI-generated previews)</p>
     <div class="company-grid">
-      <div class="company-card">
+      <div class="company-card" data-name="Abhijit Karale" data-role="Founder — Electronics & Telecommunications" data-bio="Abhijit leads product and technical strategy at Corevexis. Currently an Electronics & Telecommunications Engineering student, he focuses on cloud-based semiconductor design platforms and EDA tooling. He guides roadmap, partnerships, and early engineering efforts.">
         <div class="company-photo">
           <img loading="lazy" src="https://via.placeholder.com/400x400.png?text=AI+Founder+Portrait" alt="Founder portrait (AI-generated)" />
         </div>
@@ -336,7 +336,7 @@
         <p>Founder — Electronics & Telecommunications</p>
       </div>
 
-      <div class="company-card">
+      <div class="company-card" data-name="Hardware Lead" data-role="Hardware Lead — IC Design & Verification" data-bio="Leads analog and digital IC design efforts, verification flows, and testchip validation. Brings experience in SPICE modeling, layout, and silicon bring-up.">
         <div class="company-photo">
           <img loading="lazy" src="https://via.placeholder.com/400x400.png?text=AI+Hardware+Lead" alt="Hardware lead (AI-generated)" />
         </div>
@@ -344,7 +344,7 @@
         <p>IC design and verification</p>
       </div>
 
-      <div class="company-card">
+      <div class="company-card" data-name="Software Lead" data-role="Software Lead — Cloud Platform & EDA" data-bio="Responsible for the cloud architecture, EDA integrations, and user workflows. Drives platform reliability, API design, and developer tooling to scale simulations and collaboration.">
         <div class="company-photo">
           <img loading="lazy" src="https://via.placeholder.com/400x400.png?text=AI+Software+Lead" alt="Software lead (AI-generated)" />
         </div>
@@ -353,6 +353,21 @@
       </div>
     </div>
   </section>
+
+  <!-- Profile modal for company/team cards -->
+  <div id="profile-modal" class="profile-modal" role="dialog" aria-hidden="true" aria-label="Profile details dialog">
+    <div class="profile-modal-panel" role="document" tabindex="-1">
+      <button class="profile-modal-close close" aria-label="Close dialog">&times;</button>
+      <div class="profile-modal-inner">
+        <div class="profile-modal-photo" aria-hidden="true"></div>
+        <div class="profile-modal-copy">
+          <h3 class="profile-modal-name"></h3>
+          <h4 class="profile-modal-role"></h4>
+          <p class="profile-modal-bio"></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Portfolio Gallery - Semiconductor Projects -->
   <section id="portfolio" class="portfolio-section">
@@ -1010,6 +1025,63 @@
       nav.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{ setExpanded(false); }));
       // Close on Escape
       document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') setExpanded(false); });
+    })();
+  </script>
+
+  <script>
+    // Company profile modal behavior
+    (function(){
+      'use strict';
+      function qs(sel, root=document){ return root.querySelector(sel); }
+      function qsa(sel, root=document){ return Array.from(root.querySelectorAll(sel)); }
+      document.addEventListener('DOMContentLoaded', function(){
+        const cards = qsa('.company-card');
+        const modal = qs('#profile-modal');
+        if (!modal) return;
+        const panel = qs('.profile-modal-panel', modal);
+        const btnClose = qs('.profile-modal-close', modal);
+        const photoBox = qs('.profile-modal-photo', modal);
+        const nameEl = qs('.profile-modal-name', modal);
+        const roleEl = qs('.profile-modal-role', modal);
+        const bioEl = qs('.profile-modal-bio', modal);
+        let lastFocused = null;
+
+        function open(card){
+          lastFocused = document.activeElement;
+          const name = card.getAttribute('data-name') || (card.querySelector('h4')||{}).textContent || '';
+          const role = card.getAttribute('data-role') || (card.querySelector('p')||{}).textContent || '';
+          const bio = card.getAttribute('data-bio') || '';
+          const img = card.querySelector('.company-photo img');
+          nameEl.textContent = name;
+          roleEl.textContent = role;
+          bioEl.textContent = bio;
+          photoBox.innerHTML = img ? img.outerHTML : '';
+          modal.setAttribute('aria-hidden','false'); modal.classList.add('active');
+          btnClose.focus();
+          document.body.style.overflow = 'hidden';
+          // simple focus trap
+          function trap(e){
+            if (e.key !== 'Tab') return;
+            const focusable = panel.querySelectorAll('a, button, [tabindex]');
+            if (!focusable.length) return;
+            const first = focusable[0], last = focusable[focusable.length-1];
+            if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+          }
+          panel.__trap = trap;
+          panel.addEventListener('keydown', trap);
+        }
+
+        function close(){ modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (panel.__trap){ panel.removeEventListener('keydown', panel.__trap); panel.__trap = null; } if (lastFocused && lastFocused.focus) lastFocused.focus(); }
+
+        cards.forEach(card => {
+          card.addEventListener('click', ()=> open(card));
+          card.addEventListener('keydown', (e)=>{ if (e.key==='Enter' || e.key===' ') { e.preventDefault(); open(card); } });
+        });
+        btnClose.addEventListener('click', close);
+        modal.addEventListener('click', (e)=>{ if (e.target === modal) close(); });
+        document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') close(); });
+      });
     })();
   </script>
 
