@@ -2083,6 +2083,61 @@ ul {
   }
 }
 
+/* Gallery AI badge */
+.ai-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, #00bcd4, #00ff88);
+  color: #001;
+  font-weight: 700;
+  font-size: 0.75em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 8px;
+}
+
+/* Company section */
+.company-section {
+  padding: 60px 20px;
+  background: linear-gradient(180deg, rgba(2,6,23,0.4), rgba(10,14,39,0.6));
+  border-top: 1px solid rgba(0,188,212,0.04);
+}
+.company-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.company-card {
+  background: linear-gradient(135deg, rgba(18,18,18,0.95), rgba(26,26,36,0.95));
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  border: 1px solid rgba(0,188,212,0.06);
+}
+.company-photo {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.company-photo img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.company-card h4 { margin: 8px 0 4px 0; color: var(--primary-light); }
+.company-card p { margin: 0; color: var(--text-secondary); font-size: 0.9em; }
+
+
 /* === ROADMAP MODAL STYLES === */
 .roadmap-modal {
   position: fixed;
