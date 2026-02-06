@@ -77,12 +77,19 @@ This repository is configured for GitHub Pages deployment. The live site is auto
 ## 📝 Sections
 1. **Hero** - Eye-catching introduction with animated wafer
 2. **Features** - Three core features with circuit animations
-3. **Gallery** - Three semiconductor wafer designs
-4. **Testimonials** - User feedback and reviews
-5. **Pricing** - Three subscription tiers
-6. **Roadmap** - 2026 product timeline
-7. **About** - Company information
-8. **Contact** - Contact form and information
+3. **Gallery** - Custom SVG-animated semiconductor wafer designs
+4. **Portfolio** - Professional semiconductor project photography:
+   - Microchip Circuit Design
+   - Silicon Wafer Processing
+   - Electronic Components
+   - Testing & Validation
+   - Circuit Trace Optimization
+   - Manufacturing Excellence
+5. **Testimonials** - User feedback and reviews
+6. **Pricing** - Three subscription tiers (Starter, Professional, Enterprise)
+7. **Roadmap** - 2026 product timeline
+8. **About** - Company information
+9. **Contact** - Contact form and information
 
 ## 🔧 Customization
 Edit these files to customize:
