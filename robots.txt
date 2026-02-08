@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://abhijit-karale.github.io/Corevexis-Semiconductor/sitemap.xml
