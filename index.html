@@ -40,6 +40,16 @@
             --neon: #0ea5e9;
             --neon2: #22d3ee;
         }
+        .theme-neon {
+            --bg: #030712;
+            --bg-soft: #0a0f1f;
+            --text: #e6faff;
+            --card-bg: rgba(5, 14, 30, 0.9);
+            --card-border: #0ea5e9;
+            --muted: #9fd2e8;
+            --neon: #00ffd1;
+            --neon2: #7c3aed;
+        }
         body { background-color: var(--bg); color: var(--text); font-family: 'Inter', 'Segoe UI', sans-serif; }
         .tech-card {
             background: var(--card-bg);
@@ -71,6 +81,25 @@
             0% { transform: translateX(-30%); }
             100% { transform: translateX(130%); }
         }
+        .wafer-grid {
+            position: absolute; inset: 0; pointer-events: none; opacity: 0.15;
+            background-image:
+                linear-gradient(0deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+            background-size: 24px 24px, 24px 24px;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, var(--text), var(--neon2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: sheen 6s ease-in-out infinite;
+        }
+        @keyframes sheen {
+            0% { filter: drop-shadow(0 0 0px var(--neon2)); }
+            50% { filter: drop-shadow(0 0 8px var(--neon2)); }
+            100% { filter: drop-shadow(0 0 0px var(--neon2)); }
+        }
     </style>
 </head>
 <body class="leading-relaxed">
@@ -87,6 +116,7 @@
                 <button id="menuBtn" class="md:hidden text-slate-300 hover:text-white text-2xl" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
             </div>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="#home" class="text-slate-300 hover:text-white">Home</a>
                 <div class="relative group">
                     <button class="text-slate-300 hover:text-white">Semiconductor Solutions <i class="fas fa-chevron-down text-xs ml-1"></i></button>
                     <div class="absolute left-0 mt-2 hidden group-hover:block bg-[#101827] border border-slate-800 rounded shadow-xl p-4 w-64">
@@ -116,6 +146,7 @@
         </div>
         <div id="menuDrawer" class="md:hidden hidden mt-3 border-t border-slate-800 pt-3">
             <div class="flex flex-col gap-3 text-sm font-medium">
+                <a href="#home" class="hover:text-sky-400 transition">Home</a>
                 <a href="#verilog" class="hover:text-sky-400 transition">Semiconductor Solutions</a>
                 <a href="#embedded" class="hover:text-sky-400 transition">Embedded</a>
                 <a href="#industries" class="hover:text-sky-400 transition">Industries</a>
@@ -129,9 +160,10 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="relative">
+    <header id="home" class="relative">
         <div id="hero" class="relative h-[60vh] md:h-[72vh] overflow-hidden rounded-2xl mx-6 mt-6">
             <div class="absolute inset-0 bg-gradient-to-r from-[#180c2b]/70 via-[#0b1220]/40 to-transparent z-10"></div>
+            <div class="wafer-grid z-5"></div>
             <div id="heroSlides" class="absolute inset-0 z-0">
                 <div class="w-full h-full bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop');"></div>
                 <div class="w-full h-full bg-center bg-cover hidden" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop');"></div>
@@ -140,13 +172,17 @@
                 <div class="trace-line" style="top:20%; left:-20%; width:40%"></div>
                 <div class="trace-line" style="top:40%; left:-10%; width:55%; animation-duration:10s"></div>
                 <div class="trace-line" style="top:65%; left:-25%; width:50%; animation-duration:12s"></div>
+                <div class="trace-line" style="top:30%; left:-30%; width:35%; animation-duration:9s"></div>
+                <div class="trace-line" style="top:55%; left:-15%; width:60%; animation-duration:11s"></div>
             </div>
             <div class="relative z-20 max-w-5xl px-8 md:px-16 py-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">Enabling the Future of <span class="text-sky-500">Semiconductors & Systems</span></h1>
-                <p class="text-slate-300 max-w-2xl text-base md:text-lg">Design, verify, and build with an engineering practice suite that turns learning into real capability.</p>
-                <div class="mt-8 flex gap-4">
-                    <a href="#contact" class="bg-orange-500 hover:bg-orange-400 px-6 py-3 rounded text-sm font-bold text-white transition">Let’s Talk Possibilities</a>
-                    <a href="#verilog" class="border border-slate-700 hover:border-slate-500 px-6 py-3 rounded text-sm font-bold text-slate-200 transition">Explore Solutions</a>
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 gradient-text">Design. Simulate. Master Silicon.</h1>
+                <p class="text-slate-300 max-w-2xl text-base md:text-lg">A professional practice environment for RTL, verification, and embedded engineers with real tooling feel.</p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="#ide" class="bg-sky-600 hover:bg-sky-500 px-6 py-3 rounded text-sm font-bold text-white transition">Start Coding</a>
+                    <a href="#verilog" class="border border-slate-700 hover:border-slate-500 px-6 py-3 rounded text-sm font-bold text-slate-200 transition">Verilog</a>
+                    <a href="#systemverilog" class="border border-slate-700 hover:border-slate-500 px-6 py-3 rounded text-sm font-bold text-slate-200 transition">SystemVerilog</a>
+                    <a href="#embedded" class="border border-slate-700 hover:border-slate-500 px-6 py-3 rounded text-sm font-bold text-slate-200 transition">Embedded C</a>
                 </div>
             </div>
             <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
@@ -171,6 +207,7 @@
                                 <button id="tab-verilog" class="px-3 py-1 text-xs rounded bg-sky-600 text-white">Verilog</button>
                                 <button id="tab-systemverilog" class="px-3 py-1 text-xs rounded bg-slate-700 text-slate-200">SystemVerilog</button>
                                 <button id="tab-c" class="px-3 py-1 text-xs rounded bg-slate-700 text-slate-200">Embedded C</button>
+                                <button id="tab-testbench" class="px-3 py-1 text-xs rounded bg-slate-700 text-slate-200">Testbench</button>
                             </div>
                             <div class="flex gap-2">
                                 <button id="btn-run" class="px-3 py-1 text-xs rounded bg-emerald-600 text-white">Run</button>
@@ -181,14 +218,23 @@
                         <div id="editor-verilog" style="height: 360px;"></div>
                         <div id="editor-systemverilog" style="height: 360px; display:none;"></div>
                         <div id="editor-c" style="height: 360px; display:none;"></div>
+                        <div id="editor-testbench" style="height: 240px; display:none; border-top:1px solid #1e293b"></div>
                     </div>
                 </div>
                 <div class="lg:col-span-1">
-                    <div class="tech-card p-4 rounded-xl">
-                        <div class="text-sm font-bold text-white mb-2">Console</div>
-                        <div id="console" class="h-40 overflow-auto text-xs bg-[#0b1220] border border-slate-800 rounded p-3"></div>
-                        <div class="text-sm font-bold text-white mt-4 mb-2">Status</div>
-                        <div id="status" class="text-xs text-slate-400">Idle</div>
+                    <div class="tech-card p-0 rounded-xl overflow-hidden">
+                        <div class="flex items-center border-b border-slate-800">
+                            <button data-pane="console" class="px-3 py-2 text-xs text-white bg-slate-800">Console</button>
+                            <button data-pane="lint" class="px-3 py-2 text-xs text-slate-300">Lint</button>
+                            <button data-pane="waveform" class="px-3 py-2 text-xs text-slate-300">Waveform</button>
+                            <div class="ml-auto px-3 py-2 text-[11px] text-slate-400">Status: <span id="status">Idle</span></div>
+                        </div>
+                        <div id="console" class="h-40 overflow-auto text-xs bg-[#0b1220] p-3"></div>
+                        <div id="lintReport" class="h-40 overflow-auto text-xs bg-[#0b1220] p-3 hidden"></div>
+                        <div id="waveform" class="h-40 overflow-auto text-xs bg-[#0b1220] p-3 hidden">
+                            <div id="wavejson" style="display:none"></div>
+                            <div id="waverender"></div>
+                        </div>
                     </div>
                     <div class="tech-card p-4 rounded-xl mt-6">
                         <div class="text-sm font-bold text-white mb-2">Quick Start</div>
@@ -354,6 +400,32 @@
             </div>
         </section>
 
+        <section id="contact" class="mb-24">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-3xl font-bold text-white">Contact</h2>
+                <div class="h-px flex-1 bg-slate-800"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="tech-card p-6 rounded-xl">
+                    <div class="text-sm font-bold text-white mb-2">Get in touch</div>
+                    <p class="text-slate-400 text-sm mb-4">Email and social links for quick contact.</p>
+                    <div class="text-sm">
+                        <div class="mb-2"><span class="text-slate-400">Email:</span> <a href="mailto:corevexis.semiconductor@gmail.com" class="text-sky-400 hover:text-sky-300">corevexis.semiconductor@gmail.com</a></div>
+                        <div class="mb-2"><span class="text-slate-400">LinkedIn:</span> <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fabhijit-karale.github.io%2FCorevexis-Semiconductor-" target="_blank" class="text-sky-400 hover:text-sky-300">Share on LinkedIn</a></div>
+                        <div class="mb-2"><span class="text-slate-400">GitHub:</span> <a href="https://github.com/abhijit-karale/Corevexis-Semiconductor-" target="_blank" class="text-sky-400 hover:text-sky-300">Repository</a></div>
+                    </div>
+                </div>
+                <div class="tech-card p-6 rounded-xl">
+                    <div class="text-sm font-bold text-white mb-4">Send a message</div>
+                    <form action="mailto:corevexis.semiconductor@gmail.com">
+                        <div class="mb-3"><input type="text" name="subject" class="w-full border border-slate-800 rounded px-3 py-2 text-sm" style="background: var(--bg); color: var(--text);" placeholder="Subject"></div>
+                        <div class="mb-3"><textarea name="body" rows="5" class="w-full border border-slate-800 rounded px-3 py-2 text-sm" style="background: var(--bg); color: var(--text);" placeholder="Your message"></textarea></div>
+                        <button class="bg-sky-600 hover:bg-sky-500 px-4 py-2 rounded text-sm font-bold text-white">Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- FOOTER -->
@@ -402,7 +474,8 @@
         const ideSamples = {
             verilog: "module half_adder(input a,b, output sum, carry);\nassign sum = a ^ b;\nassign carry = a & b;\nendmodule",
             systemverilog: "module fsm(input logic clk, rst, output logic out);\n// state machine\nendmodule",
-            c: "#include <stdio.h>\nint main(){ printf(\"Hello Silicon\\n\"); return 0; }"
+            c: "#include <stdio.h>\nint main(){ printf(\"Hello Silicon\\n\"); return 0; }",
+            testbench: "module tb;\nreg clk=0, rst=1; always #5 clk=~clk; initial begin rst=0; #100 $finish; end\nendmodule"
         };
         let currentLang = 'verilog';
         const consoleEl = document.getElementById('console');
@@ -415,9 +488,11 @@
             const vModel = monaco.editor.createModel(ideSamples.verilog, 'verilog');
             const svModel = monaco.editor.createModel(ideSamples.systemverilog, 'verilog');
             const cModel = monaco.editor.createModel(ideSamples.c, 'c');
+            const tbModel = monaco.editor.createModel(ideSamples.testbench, 'verilog');
             const edV = monaco.editor.create(document.getElementById('editor-verilog'), { model: vModel, theme: 'vs-dark', automaticLayout: true, fontSize: 13, minimap: {enabled:false}});
             const edSV = monaco.editor.create(document.getElementById('editor-systemverilog'), { model: svModel, theme: 'vs-dark', automaticLayout: true, fontSize: 13, minimap: {enabled:false}});
             const edC = monaco.editor.create(document.getElementById('editor-c'), { model: cModel, theme: 'vs-dark', automaticLayout: true, fontSize: 13, minimap: {enabled:false}});
+            const edTB = monaco.editor.create(document.getElementById('editor-testbench'), { model: tbModel, theme: 'vs-dark', automaticLayout: true, fontSize: 12, minimap: {enabled:false}});
 
             async function compileCRemote(code){
                 setStatus('Compiling');
@@ -451,16 +526,45 @@
                 document.getElementById('editor-verilog').style.display = lang==='verilog'?'block':'none';
                 document.getElementById('editor-systemverilog').style.display = lang==='systemverilog'?'block':'none';
                 document.getElementById('editor-c').style.display = lang==='c'?'block':'none';
+                document.getElementById('editor-testbench').style.display = lang==='testbench'?'block':'none';
                 document.getElementById('tab-verilog').className = lang==='verilog'?'px-3 py-1 text-xs rounded bg-sky-600 text-white':'px-3 py-1 text-xs rounded bg-slate-700 text-slate-200';
                 document.getElementById('tab-systemverilog').className = lang==='systemverilog'?'px-3 py-1 text-xs rounded bg-sky-600 text-white':'px-3 py-1 text-xs rounded bg-slate-700 text-slate-200';
                 document.getElementById('tab-c').className = lang==='c'?'px-3 py-1 text-xs rounded bg-sky-600 text-white':'px-3 py-1 text-xs rounded bg-slate-700 text-slate-200';
+                document.getElementById('tab-testbench').className = lang==='testbench'?'px-3 py-1 text-xs rounded bg-sky-600 text-white':'px-3 py-1 text-xs rounded bg-slate-700 text-slate-200';
             }
             document.getElementById('tab-verilog').onclick = () => showEditor('verilog');
             document.getElementById('tab-systemverilog').onclick = () => showEditor('systemverilog');
             document.getElementById('tab-c').onclick = () => showEditor('c');
+            document.getElementById('tab-testbench').onclick = () => showEditor('testbench');
             showEditor('verilog');
 
-            function getEditor(){ return currentLang==='verilog'?edV: currentLang==='systemverilog'?edSV: edC; }
+            function getEditor(){ return currentLang==='verilog'?edV: currentLang==='systemverilog'?edSV: currentLang==='c'? edC : edTB; }
+
+            function showPane(id){
+                ['console','lintReport','waveform'].forEach(x=> document.getElementById(x).style.display = (x===id)?'block':'none');
+                document.querySelectorAll('[data-pane]').forEach(b=> b.className = b.getAttribute('data-pane')===id ? 'px-3 py-2 text-xs text-white bg-slate-800' : 'px-3 py-2 text-xs text-slate-300');
+            }
+            document.querySelector('[data-pane=\"console\"]').onclick = ()=> showPane('console');
+            document.querySelector('[data-pane=\"lint\"]').onclick = ()=> showPane('lintReport');
+            document.querySelector('[data-pane=\"waveform\"]').onclick = ()=> showPane('waveform');
+            showPane('console');
+
+            function lintHDL(code){
+                const out=[];
+                if (/always\\s*@\\s*\\(\\s*posedge/i.test(code) && /=\\s*[^=]/.test(code)) out.push('Blocking assignment in sequential block');
+                if (/\\bcase\\b[\\s\\S]*?endcase/i.test(code) && !/default\\s*:/i.test(code)) out.push('Missing default in case');
+                if (/\\blatch\\b/i.test(code)) out.push('Potential latch');
+                return out;
+            }
+
+            function renderWave(code){
+                const clk = 'p.....|.....|.....|.....';
+                const rst = '1....0|.....|.....|.....';
+                const data = 'x345x|6789x|abcdx|ef01x';
+                const obj = {signal:[{name:'clk',wave:clk},{name:'reset',wave:rst},{name:'data',wave:data}]};
+                document.getElementById('wavejson').textContent = JSON.stringify(obj);
+                WaveDrom.RenderWaveForm(0, obj, document.getElementById('waverender'));
+            }
 
             function compile(){
                 const code = getEditor().getValue();
@@ -480,8 +584,11 @@
                 const model = getEditor().getModel();
                 const markers = errors.map((e,i)=>({ severity: monaco.MarkerSeverity.Error, message: e.message, startLineNumber: 1+i, startColumn: 1, endLineNumber: 1+i, endColumn: 5}));
                 monaco.editor.setModelMarkers(model, 'owner', markers);
-                if (errors.length){ setStatus('Errors'); log('Compilation failed'); errors.forEach(e=>log('• '+e.message)); }
-                else { setStatus('Compiled'); log('Compilation successful'); }
+                const lint = lintHDL(code);
+                const lintEl = document.getElementById('lintReport'); lintEl.innerHTML='';
+                lint.forEach(m=>{ const d=document.createElement('div'); d.textContent=m; lintEl.appendChild(d); });
+                if (errors.length){ setStatus('Errors'); log('Compilation failed'); errors.forEach(e=>log('• '+e.message)); showPane('lintReport'); }
+                else { setStatus('Compiled'); log('Compilation successful'); renderWave(code); }
             }
 
             function run(){
@@ -494,6 +601,8 @@
                         log(m? m[1] : 'Process exited');
                     } else {
                         log('Simulation stub complete');
+                        renderWave(code);
+                        showPane('waveform');
                     }
                     setStatus('Idle');
                 }, 600);
@@ -510,6 +619,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-verilog.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wavedrom@2.9.1/wavedrom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wavedrom@2.9.1/skins/default.js"></script>
 
     <script>
         // Topic Data Maps
@@ -612,13 +723,18 @@
         const themeToggle = document.getElementById('themeToggle');
         const root = document.documentElement;
         function applyTheme(t) {
-            if (t === 'light') root.classList.add('theme-light'); else root.classList.remove('theme-light');
-            themeToggle.innerHTML = t === 'light' ? '<i class=\"fas fa-moon\"></i>' : '<i class=\"fas fa-sun\"></i>';
+            root.classList.remove('theme-light','theme-neon');
+            if (t === 'light') root.classList.add('theme-light');
+            if (t === 'neon') root.classList.add('theme-neon');
+            themeToggle.innerHTML = t === 'light' ? '<i class=\"fas fa-moon\"></i>' : (t==='neon' ? '<i class=\"fas fa-bolt\"></i>' : '<i class=\"fas fa-sun\"></i>');
         }
         const savedTheme = localStorage.getItem('theme') || 'dark';
         applyTheme(savedTheme);
         themeToggle.addEventListener('click', () => {
-            const next = root.classList.contains('theme-light') ? 'dark' : 'light';
+            const current = localStorage.getItem('theme') || 'dark';
+            const order = ['dark','light','neon'];
+            const idx = order.indexOf(current);
+            const next = order[(idx+1)%order.length];
             localStorage.setItem('theme', next);
             applyTheme(next);
         });
