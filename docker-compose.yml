@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  api:
+    build: ./backend
+    image: corevexis/api:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JOB_DATA=/data/jobs
+    depends_on:
+      - c-runner
+      - verilog-runner
+      - sv-runner
+
+  c-runner:
+    build: ./backend/images/c-runner
+    image: c-runner:latest
+
+  verilog-runner:
+    build: ./backend/images/verilog-runner
+    image: verilog-runner:latest
+
+  sv-runner:
+    build: ./backend/images/sv-runner
+    image: sv-runner:latest

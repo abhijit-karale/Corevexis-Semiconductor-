@@ -477,6 +477,7 @@
             c: "#include <stdio.h>\nint main(){ printf(\"Hello Silicon\\n\"); return 0; }",
             testbench: "module tb;\nreg clk=0, rst=1; always #5 clk=~clk; initial begin rst=0; #100 $finish; end\nendmodule"
         };
+        const API_BASE = "http://localhost:8000";
         let currentLang = 'verilog';
         const consoleEl = document.getElementById('console');
         const statusEl = document.getElementById('status');
@@ -519,6 +520,60 @@
                     log('Network error');
                     setStatus('Errors');
                 }
+            }
+
+            function hasBackend(){ return !!API_BASE; }
+            async function postJob(language, files, options){
+                const res = await fetch(API_BASE+'/v1/jobs', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ language, files, options })});
+                return await res.json();
+            }
+            async function getJob(jobId){
+                const res = await fetch(API_BASE+'/v1/jobs/'+jobId);
+                return await res.json();
+            }
+            async function pollJob(jobId, onUpdate){
+                let tries = 0;
+                while (true){
+                    const j = await getJob(jobId);
+                    if (onUpdate) onUpdate(j);
+                    if (j.status==='completed' || j.status==='failed') return j;
+                    await new Promise(r=> setTimeout(r, Math.min(2000 + tries*500, 6000)));
+                    tries++;
+                }
+            }
+            async function compileRunBackend(lang){
+                const code = getEditor().getValue();
+                const tb = edTB.getValue();
+                const files = [];
+                if (lang==='c'){
+                    files.push({ path:'src/main.c', content: code });
+                } else if (lang==='verilog' || lang==='systemverilog'){
+                    files.push({ path:'src/top.'+(lang==='verilog'?'v':'sv'), content: code });
+                    files.push({ path:'tb/tb.'+(lang==='verilog'?'v':'sv'), content: tb });
+                }
+                setStatus('Queued');
+                log('Submitting job...');
+                const resp = await postJob(lang, files, { request_vcd: lang!=='c' });
+                const jobId = resp.job_id || resp.id;
+                if (!jobId){ setStatus('Errors'); log('Job submission failed'); return; }
+                const result = await pollJob(jobId, j=> { if (j.status==='running') setStatus('Running'); });
+                if (result.stdout_url){
+                    try { const t = await (await fetch(result.stdout_url)).text(); t.split('\\n').forEach(x=> log(x)); } catch(_) {}
+                }
+                if (result.stderr_url){
+                    try { const t = await (await fetch(result.stderr_url)).text(); t.split('\\n').forEach(x=> log(x)); } catch(_) {}
+                }
+                if (lang!=='c' && result.vcd_url){
+                    const wf = document.getElementById('waverender');
+                    const link = document.createElement('a');
+                    link.href = result.vcd_url;
+                    link.target = '_blank';
+                    link.textContent = 'Open VCD waveform';
+                    wf.innerHTML='';
+                    wf.appendChild(link);
+                    showPane('waveform');
+                }
+                setStatus(result.status==='completed' ? 'Compiled' : 'Errors');
             }
 
             function showEditor(lang){
@@ -571,9 +626,10 @@
                 if (currentLang==='c'){
                     consoleEl.innerHTML='';
                     monaco.editor.setModelMarkers(getEditor().getModel(), 'owner', []);
-                    compileCRemote(code);
+                    if (hasBackend()) compileRunBackend('c'); else compileCRemote(code);
                     return;
                 }
+                if (hasBackend()){ compileRunBackend(currentLang); return; }
                 const errors = [];
                 if (currentLang==='verilog'){
                     if (!/module\\s+\\w+/i.test(code)) errors.push({ message:'Missing module declaration' });
